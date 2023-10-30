@@ -1,0 +1,22 @@
+apiVersion: core.choreo.dev/v1alpha1
+kind: ComponentConfig
+metadata:
+  name: user
+  projectName: social-pulse
+  annotations:
+    componentType: service
+spec:
+  inbound:
+  - name: user
+    port: 9090
+    type: REST
+    visibility: Public
+    context: /
+  outbound:
+    serviceReferences:
+    - name: choreo:///social-pulse/memories/v1.0/mem/public
+      dependentConfig: config-1
+      connectionType: service
+    - name: user-db
+      dependentConfig: config-1
+      connectionType: datastore
