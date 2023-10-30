@@ -8,7 +8,7 @@ metadata:
 spec:
   inbound:
   - name: user
-    port: 9090
+    port: 9099
     type: REST
     visibility: Public
     context: /
